@@ -30568,7 +30568,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ".msg{\n    color: red;\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
