@@ -1,0 +1,10 @@
+div.notfound
+    i.fa.fa-meh-o.notfound-icon
+    h1.fv-col-xs-1of1.notfound-header
+        =" ای بابا!"
+    h3.fv-col-xs-1of1
+        ="متأسفانه صفحه درخواستی شما پیدا نشد!"
+    div
+        fv-button.fv.fv-default(@click="$store.commit('go', '/')")
+            i.fa.fa-home
+            =" بازگشت به صفحه اصلی"

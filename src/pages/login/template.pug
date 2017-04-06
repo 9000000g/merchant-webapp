@@ -1,0 +1,11 @@
+div.fv-row
+    form.fv-col-sm-1of2.fv-col-offset-sm-3of12.fv-col-xs-1of1
+        div.fv-col-sm-1of1
+            label.fv-control-label نام کاربری
+            fv-input.fv-form-control(type='text', v-model='user.username', placeholder='نام کاربری خود را وارد کنید.', required)
+        div.fv-col-sm-1of1
+            label.fv-control-label رمز عبور
+            fv-input.fv-form-control(type='password', v-model='user.password', placeholder='رمز عبور خود را وارد کنید.', required)
+        div.fv-col-sm-1of1.fv-col-sm-1of1
+            label.fv-control-label
+            fv-button.fv-primary.fv-block(type='submit', @click="$refs.menu.open($event)") ورود
