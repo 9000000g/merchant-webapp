@@ -3,14 +3,11 @@ import './style.css';
 export default {
     template,
     data () {
-        return {
-            title: 'کوپن شماره فلان'
-        }
-    },
-    methods: {
-
+        return {}
     },
     computed: {
-
+        title(){
+            return `تخفیف شماره ${this.$route.params.id}`;
+        }
     },
 }

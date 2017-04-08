@@ -1,9 +1,9 @@
 fv-sidebar.sidebar(ref='sidebar', position='right', :pin='null', :width='190')
   fv-main
-    fv-header.user-dashboard-header
+    fv-header.user-dashboard-header(:height="150")
       fv-button.fv-primary.fv-icon.fv-grow(@click="$refs.menu.open($event)")
           i.fa.fa-user.user-dashboard-icon
-          |  {{$store.state.me.username}}
+          h3(v-html="$store.state.me.username", v-show="$store.state.me.loggedIn")
     fv-content.no-padding
       fv-list.no-outline-border(v-on:click="go($event)", :items='items')
   fv-menu(ref="menu", v-on:click="action($event)", :options="menuItems")

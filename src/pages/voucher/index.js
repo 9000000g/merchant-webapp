@@ -4,7 +4,7 @@ export default {
     template,
     data () {
         return {
-            title: 'کوپن',
+            title: 'تخفیف‌ها',
             searchQuery: ''
         }
     },
