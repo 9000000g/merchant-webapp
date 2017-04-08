@@ -432,12 +432,6 @@ exports.default = {
     computed: {
         items: function items() {
             var ret = [{
-                key: 'login',
-                icon: 'fa fa-sign-in',
-                text: 'ورود',
-                selected: this.$route.name === 'login',
-                disabled: this.$store.state.me.loggedIn !== false
-            }, {
                 key: 'voucher',
                 icon: 'fa fa-tags',
                 text: 'کوپن',
@@ -474,6 +468,15 @@ exports.default = {
                 selected: this.$route.name === 'social',
                 disabled: true
             }];
+            if (this.$store.state.me.loggedIn === false) {
+                ret.unshift({
+                    key: 'login',
+                    icon: 'fa fa-sign-in',
+                    text: 'ورود',
+                    selected: this.$route.name === 'login',
+                    disabled: false
+                });
+            }
             return ret;
         }
     },
@@ -16192,10 +16195,10 @@ exports.default = {
             };
             if (domElem) {
                 var targetOffset = {
-                    left: domElem.target.offsetLeft,
-                    top: domElem.target.offsetTop,
-                    right: windowOffset.width - (domElem.target.offsetLeft + domElem.target.offsetWidth),
-                    bottom: windowOffset.height - (domElem.target.offsetTop + domElem.target.offsetHeight)
+                    left: domElem.x,
+                    top: domElem.y,
+                    right: windowOffset.width - domElem.x,
+                    bottom: windowOffset.height - domElem.y
                 };
                 if (targetOffset.left > windowOffset.width / 2) {
                     offset.right = targetOffset.right + margin + 'px';
@@ -16730,7 +16733,6 @@ exports.default = {
     },
     computed: {
         animationName: function animationName() {
-            console.log('anim', this.pAnimation);
             if (this.pAnimation === true) {
                 return 'fv-sidebar-' + this.pPosition;
             } else {

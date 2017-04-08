@@ -6,13 +6,6 @@ export default {
         items(){
             const ret = [
                 {
-                    key: 'login',
-                    icon: 'fa fa-sign-in',
-                    text: 'ورود',
-                    selected: this.$route.name === 'login',
-                    disabled: this.$store.state.me.loggedIn !== false
-                },
-                {
                     key: 'voucher',
                     icon: 'fa fa-tags',
                     text: 'کوپن',
@@ -55,6 +48,15 @@ export default {
                     disabled: true
                 }
             ];
+            if( this.$store.state.me.loggedIn === false ){
+                ret.unshift({
+                    key: 'login',
+                    icon: 'fa fa-sign-in',
+                    text: 'ورود',
+                    selected: this.$route.name === 'login',
+                    disabled: false
+                });
+            }
             return ret;
         }
     },
