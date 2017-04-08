@@ -1,0 +1,19 @@
+fv-main
+    fv-header
+        fv-button.fv-primary.fv-icon(@click="$store.state.sidebar.toggle()")
+            i.fa.fa-bars
+        div.fv-title
+            h2(v-html="title")
+        fv-button.fv-primary.fv-icon(@click="$store.commit('go', -1)")
+            i.fa.fa-chevron-left
+    fv-content.no-padding
+        div.fv-row
+            div.fv-col-xs-1of1 سلام
+    fv-footer
+        fv-button.fv-primary.fv-block.fv-grow(@click="$store.commit('log', $route)")
+            i.fa.fa-plus
+            =" ثبت تغییرات "
+        fv-button.fv-danger.fv-block.fv-grow(@click="$store.commit('log', $route)")
+            i.fa.fa-trash
+            =" حذف "
+            span(v-html="title")
