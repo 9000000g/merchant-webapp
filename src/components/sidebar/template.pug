@@ -1,10 +1,9 @@
 fv-sidebar.sidebar(ref='sidebar', position='right', :pin='null', :width='190')
   fv-main
     fv-header.user-dashboard-header
-      .fv-icon
-      .fv-title
-        h3
+      fv-button.fv-primary.fv-icon.fv-grow(@click="$refs.menu.open($event)")
           i.fa.fa-user.user-dashboard-icon
           |  {{$store.state.me.username}}
     fv-content.no-padding
       fv-list.no-outline-border(v-on:click="go($event)", :items='items')
+  fv-menu(ref="menu", v-on:click="action($event)", :options="menuItems")
