@@ -7,31 +7,8 @@
 	</head>
 	<body class="rtl">
     <fv-main id="app">
-        <fv-header>
-          <fv-button class="fv-primary fv-icon fv-hide-on-normalz"  @click="$refs.sidebar.toggle()"> <i class="fa fa-bars"></i> </fv-button>
-          <div class="fv-title"> <h2>راد بک آفیس</h2> </div>
-          <fv-button class="fv-primary fv-icon" @click="$store.commit('go', -1)"> <i class="fa fa-chevron-left"></i> </fv-button>
-        </fv-header>
-        <fv-content class="no-padding">
-          <router-view></router-view>
-        </fv-content>
-        <fv-sidebar ref="sidebar" position="right" :pin="null">
-          <fv-main>
-            <fv-header class="user-dashboard-header" :height="170">
-              <div class="fv-title">
-                <i class="fa fa-user user-dashboard-icon"></i>
-                <h3 v-html="$store.state.me.name"></h3>
-              </div>
-            </fv-header>
-            <fv-content class="no-padding">
-              <fv-list
-                class="no-outline-border"
-                v-on:click="$store.commit('go', $event)"
-                :items="sidebarItems">
-              </fv-list>
-            </fv-content>
-          </fv-main>
-        </fv-sidebar>
+        <router-view></router-view>
+        <raad-sidebar></raad-sidebar>
     </fv-main>
 		<script src="./raad-backoffice.js"></script>
 	</body>

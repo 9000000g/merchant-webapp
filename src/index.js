@@ -13,10 +13,16 @@ Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(framevuerk);
 
+// components
+import raadSidebar from './components/sidebar';
 
-// templates
+Vue.component('raadSidebar', raadSidebar);
+
+// pages
 import notfound from './pages/notfound';
+import home from './pages/home';
 import login from './pages/login';
+import voucher from './pages/voucher';
 
 
 // routes
@@ -25,14 +31,19 @@ const router = new VueRouter({
         {
             name: 'home',
             path: '/',
-            component: {
-                template: '<h1>Home</h1>'
-            }
+            component: home
         },
         {
             name: 'login',
+            title: 'ورود کاربر',
             path: '/login',
             component: login
+        },
+        {
+            name: 'voucher',
+            title: 'کوپن',
+            path: '/voucher',
+            component: voucher
         },
         {
             name: 'notfound',
@@ -47,12 +58,14 @@ const store = new Vuex.Store({
   state: {
     me: {
         loggedIn: false,
-        name: 'کاربر مهمان'
-    }
+        username: 'guestuser'
+    },
+    sidebar: null
   },
   mutations: {
-    login (state) {
-      state.me.loggedIn = true;
+    login (state, username) {
+        state.me.username = username;
+        state.me.loggedIn = true;
     },
     go (state, pageUrl='login') {
         console.log(pageUrl);
@@ -65,6 +78,10 @@ const store = new Vuex.Store({
         router.push(pageUrl);
         return true;
         
+    },
+    log (state, data='') {
+        console.log(data);
+        return true;
     }
   }
 })
@@ -93,35 +110,7 @@ const app = new Vue({
         }
     },
     computed: {
-        sidebarItems(){
-            const ret = [
-                {
-                    key: 'login',
-                    icon: 'fa fa-user',
-                    text: 'ورود',
-                    selected: this.$route.name === 'login',
-                    disabled: this.$store.state.me.loggedIn !== false
-                },
-                {
-                    key: 'add-item',
-                    icon: 'fa fa-user',
-                    text: 'اضافه کردن کاربر',
-                    disabled: this.$store.state.me.loggedIn === false
-                },
-                {
-                    icon: 'fa fa-chart-bar',
-                    text: 'روبوسی با کاربر',
-                    disabled: true,
-                    disabled: this.$store.state.me.loggedIn === false
-                },
-                {
-                    icon: 'fa fa-google',
-                    text: 'گوگل',
-                    disabled: this.$store.state.me.loggedIn === false
-                }
-            ];
-            return ret;
-        }
+
     },
     methods: {
         log(text=""){

@@ -1,8 +1,8 @@
-#app .notfound{
+#app .home{
     text-align: center;
     margin: 50px auto;
 }
-#app .notfound-icon{
+#app .home-icon{
     font-size: 43px;
     vertical-align: middle;
 }

@@ -4,7 +4,7 @@ export default {
     template,
     data () {
         return {
-            title: 'خطای ۴۰۴'
+            title: 'راد بک‌آفیس'
         }
     },
 }
