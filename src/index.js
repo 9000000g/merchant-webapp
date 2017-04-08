@@ -23,6 +23,7 @@ import notfound from './pages/notfound';
 import home from './pages/home';
 import login from './pages/login';
 import voucher from './pages/voucher';
+import voucherItem from './pages/voucher-item';
 
 
 // routes
@@ -35,15 +36,18 @@ const router = new VueRouter({
         },
         {
             name: 'login',
-            title: 'ورود کاربر',
             path: '/login',
             component: login
         },
         {
             name: 'voucher',
-            title: 'کوپن',
             path: '/voucher',
             component: voucher
+        },
+        {
+            name: 'voucher-item',
+            path: '/voucher/:id',
+            component: voucherItem
         },
         {
             name: 'notfound',
@@ -67,8 +71,11 @@ const store = new Vuex.Store({
         state.me.username = username;
         state.me.loggedIn = true;
     },
+    logout (state) {
+        state.me.username = 'guestuser';
+        state.me.loggedIn = false;
+    },
     go (state, pageUrl='login') {
-        console.log(pageUrl);
         if( typeof pageUrl === 'number' ){
             router.go(pageUrl);
         }
@@ -111,6 +118,11 @@ const app = new Vue({
     },
     computed: {
 
+    },
+    created(){
+        if( this.$store.state.me.loggedIn === false ){
+            this.$store.commit('go', 'login');
+        }
     },
     methods: {
         log(text=""){
