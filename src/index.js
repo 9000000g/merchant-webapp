@@ -6,7 +6,6 @@ import Vuex from 'vuex';
 import VueRouter from 'vue-router';
 import framevuerk from 'framevuerk';
 import 'framevuerk/dist/framevuerk.css';
-
 import './index.html';
 
 Vue.use(VueRouter);
@@ -15,7 +14,6 @@ Vue.use(framevuerk);
 
 // components
 import raadSidebar from './components/sidebar';
-
 Vue.component('raadSidebar', raadSidebar);
 
 // pages
@@ -57,23 +55,30 @@ const router = new VueRouter({
     ]
 });
 
-// state
+// store
+const session = JSON.parse( global.sessionStorage.getItem('me') );
+const guestUser = {
+    username: 'guest',
+    loggedIn: false,
+    token: ''
+}
 const store = new Vuex.Store({
   state: {
-    me: {
-        loggedIn: false,
-        username: 'guestuser'
-    },
+    me: session === null? guestUser: session,
     sidebar: null
   },
   mutations: {
     login (state, username) {
         state.me.username = username;
         state.me.loggedIn = true;
+        state.me.token = '123';
+        global.sessionStorage.setItem('me', JSON.stringify(state.me) );
     },
     logout (state) {
-        state.me.username = 'guestuser';
-        state.me.loggedIn = false;
+        state.me.username = guestUser.username;
+        state.me.loggedIn = guestUser.loggedIn;
+        state.me.token = guestUser.token;
+        global.sessionStorage.removeItem('me');
     },
     go (state, pageUrl='login') {
         if( typeof pageUrl === 'number' ){
@@ -93,7 +98,7 @@ const store = new Vuex.Store({
   }
 })
 
-
+// app
 const app = new Vue({
     router,
     store,
@@ -120,13 +125,24 @@ const app = new Vue({
 
     },
     created(){
-        if( this.$store.state.me.loggedIn === false ){
-            this.$store.commit('go', 'login');
+        this.routeChange();
+    },
+    watch: {
+        $route(){
+            this.routeChange();
         }
     },
     methods: {
         log(text=""){
             console.log(text);
+        },
+        routeChange(){
+            if( this.$store.state.me.loggedIn === false ){
+                this.$store.commit('go', 'login');
+            }
+            else if( this.$route.name === 'login' ){
+                this.$store.commit('go', 'voucher');
+            }
         }
     }
 }).$mount('#app');
