@@ -1,8 +1,6 @@
 var pkg = require('./package.json');
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
 
 module.exports = {
   entry: './src/index.js',
@@ -20,32 +18,17 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(p)csds$/,
-        loader: ExtractTextPlugin.extract( 'css-loader?importLoaders=1!postcss-loader' ),
-        exclude: /node_modules/
-      },
-      {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        loader: 'style-loader!css-loader?importLoaders=1!postcss-loader'
       },
       {
         test: /\.pug$/,
         loader: 'raw-loader!pug-html-loader'
       },
       {
-        test: /\.htmlz$/,
-        loader: 'raw-loader'
-      },
-      {
         test: /\.(html|png|jpg|gif|svg|woff|woff2|eot|ttf)$/,
-        loader: 'file-loader',
-        query: {
-          name: '[name].[ext]'//?[hash]'
-        }
+        loader: 'file-loader?name=[name].[ext]'
       }
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin(pkg.name+'.css')
-  ]
+  }
 }
