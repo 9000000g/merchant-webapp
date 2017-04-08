@@ -6,13 +6,6 @@ export default {
         items(){
             const ret = [
                 {
-                    key: 'login',
-                    icon: 'fa fa-sign-in',
-                    text: 'ورود',
-                    selected: this.$route.name.indexOf('login') === 0,
-                    disabled: this.$store.state.me.loggedIn === true
-                },
-                {
                     key: 'voucher',
                     icon: 'fa fa-tags',
                     text: 'کوپن',
