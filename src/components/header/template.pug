@@ -1,0 +1,9 @@
+fv-header.header
+  fv-button.fv-primary.fv-icon(@click="$store.commit('toggleSidebar')")
+      i.fa.fa-bars
+  div.fv-title
+    h2
+      i.fa.fa-spinner.fa-spin(v-if="$store.state.loading")
+      span(v-if="!$store.state.loading") راد بک‌آفیس
+  fv-button.fv-primary.fv-icon(@click="$store.commit('go', -1)")
+      i.fa.fa-chevron-left
