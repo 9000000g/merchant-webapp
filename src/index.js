@@ -13,8 +13,8 @@ Vue.use(Vuex);
 Vue.use(framevuerk);
 
 // components
-import raadSidebar from './components/sidebar';
-Vue.component('raadSidebar', raadSidebar);
+import sidebar from './components/sidebar';
+import header from './components/header';
 
 // pages
 import notfound from './pages/notfound';
@@ -54,6 +54,15 @@ const router = new VueRouter({
         }
     ]
 });
+router.beforeEach((to, from, next) => {
+    store.commit('loading');
+    //console.log(to);
+    setTimeout(()=>{
+        next();
+        store.commit('loading', false);
+    }, 700);
+})
+
 
 // store
 const session = JSON.parse( global.sessionStorage.getItem('me') );
@@ -65,7 +74,8 @@ const guestUser = {
 const store = new Vuex.Store({
   state: {
     me: session === null? guestUser: session,
-    sidebar: null
+    sidebar: null,
+    loading: false
   },
   mutations: {
     login (state, username) {
@@ -91,6 +101,15 @@ const store = new Vuex.Store({
         return true;
         
     },
+    toggleSidebar (state){
+        if( state.sidebar ){
+            state.sidebar.toggle();
+        }
+    },
+    loading (state, set=true) {
+        state.loading = set;
+        return true;
+    },
     log (state, data='') {
         console.log(data);
         return true;
@@ -102,6 +121,10 @@ const store = new Vuex.Store({
 const app = new Vue({
     router,
     store,
+    components: {
+        raadHeader: header,
+        raadSidebar: sidebar
+    },
     data(){
         return {
             menuItems: [{
