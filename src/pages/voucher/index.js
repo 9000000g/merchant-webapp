@@ -10,7 +10,6 @@ export default {
     },
     methods: {
         goToItem(itemId){
-            console.log(itemId)
             this.$store.commit('go', `voucher/${itemId}`);
         }
     },
