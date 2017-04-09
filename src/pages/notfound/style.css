@@ -1,8 +1,8 @@
 #app .notfound{
     text-align: center;
     margin: 50px auto;
+    max-width: 100%;
 }
-#app .notfound-icon{
-    font-size: 43px;
-    vertical-align: middle;
+#app .notfound img{
+    max-width: 100%;
 }
