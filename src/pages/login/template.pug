@@ -1,11 +1,7 @@
 fv-main
     fv-header
-        fv-button.fv-primary.fv-icon(@click="$store.state.sidebar.toggle()")
-            i.fa.fa-bars
         div.fv-title
             h2(v-html="title")
-        fv-button.fv-primary.fv-icon(@click="$store.commit('go', -1)")
-            i.fa.fa-chevron-left
     fv-content.no-padding
         div.fv-row
             form.fv-col-sm-1of2.fv-col-offset-sm-3of12.fv-col-xs-1of1(@submit.prevent="login()")
