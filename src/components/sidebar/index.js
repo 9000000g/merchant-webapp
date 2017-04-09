@@ -9,42 +9,42 @@ export default {
                     key: 'voucher',
                     icon: 'fa fa-tags',
                     text: 'کوپن',
-                    selected: this.$route.name.indexOf('voucher') === 0,
+                    selected: this.currentRoute.indexOf('voucher') === 0,
                     disabled: this.$store.state.me.loggedIn === false
                 },
                 {
                     key: 'customer',
                     icon: 'fa fa-user',
                     text: 'مشتری',
-                    selected: this.$route.name.indexOf('customer') === 0,
+                    selected: this.currentRoute.indexOf('customer') === 0,
                     disabled: this.$store.state.me.loggedIn === false
                 },
                 {
                     key: 'product',
                     icon: 'fa fa-qrcode',
                     text: 'محصول',
-                    selected: this.$route.name.indexOf('product') === 0,
+                    selected: this.currentRoute.indexOf('product') === 0,
                     disabled: this.$store.state.me.loggedIn === false
                 },
                 {
                     key: 'sales',
                     icon: 'fa fa-file-text-o',
                     text: 'فروش',
-                    selected: this.$route.name.indexOf('sales') === 0,
+                    selected: this.currentRoute.indexOf('sales') === 0,
                     disabled: this.$store.state.me.loggedIn === false
                 },
                 {
                     key: 'messaging',
                     icon: 'fa fa-comments',
                     text: 'پیام‌ها',
-                    selected: this.$route.name.indexOf('messaging') === 0,
+                    selected: this.currentRoute.indexOf('messaging') === 0,
                     disabled: this.$store.state.me.loggedIn === false
                 },
                 {
                     key: 'social',
                     icon: 'fa fa-bullhorn',
                     text: 'شبکه اجتماعی',
-                    selected: this.$route.name.indexOf('social') === 0,
+                    selected: this.currentRoute.indexOf('social') === 0,
                     disabled: true
                 }
             ];
@@ -72,6 +72,9 @@ export default {
                 });
             }
             return ret;
+        },
+        currentRoute(){
+            return this.$route.name || '';
         }
     },
     methods: {
