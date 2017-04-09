@@ -4,7 +4,7 @@ fv-main
             fv-input.fv-form-control(type='search', class="search-input", placeholder='جست‌و‌جو کنید...', v-model="searchQuery")
     fv-content.no-padding
         div.fv-row.items
-            div.fv-col-lg-1of6.fv-col-sm-1of4.fv-col-xs-1of1.item(v-for="item in items", @click="goToItem(item.key)")
+            div.fv-col-lg-3.fv-col-md-4.fv-col-sm-6.fv-col-xs-12.item(v-for="item in items", @click="goToItem(item.key)")
                 div.item-body
                     h3(v-html="item.title")
                     p(v-html="item.description")
