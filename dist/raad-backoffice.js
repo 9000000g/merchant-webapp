@@ -30897,7 +30897,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "#app .home{\n    text-align: center;\n    margin: 50px auto;\n}\n#app .home-icon{\n    font-size: 43px;\n    vertical-align: middle;\n}", ""]);
+exports.push([module.i, "#app .home{\n    text-align: center;\n    margin: 50px auto;\n    max-width: 100%;\n}\n#app .home-icon{\n    font-size: 43px;\n    vertical-align: middle;\n}", ""]);
 
 // exports
 
@@ -31240,7 +31240,7 @@ module.exports = "<fv-sidebar class=\"sidebar\" ref=\"sidebar\" position=\"right
 /* 44 */
 /***/ (function(module, exports) {
 
-module.exports = "<fv-main><fv-header><fv-button class=\"fv-primary fv-icon\" @click=\"$store.state.sidebar.toggle()\"><i class=\"fa fa-bars\"></i></fv-button><div class=\"fv-title\"><h2 v-html=\"title\"></h2></div><fv-button class=\"fv-primary fv-icon\" @click=\"$store.commit('go', -1)\"><i class=\"fa fa-chevron-left\"></i></fv-button></fv-header><fv-content><div class=\"home\"><h2 class=\"fv-col-xs-1of1\"><i class=\"fa fa-smile-o home-icon\"></i> سلام. به اپلیکیشن راد بک‌آفیس خوش آمدید. از منوی کناری بخش مورد نظر خود را انتخاب کنید.</h2></div></fv-content></fv-main>"
+module.exports = "<fv-main><fv-content><div class=\"home\"><h2 class=\"fv-col-xs-1of1\"><i class=\"fa fa-smile-o home-icon\"></i> سلام. به اپلیکیشن راد بک‌آفیس خوش آمدید. از منوی کناری بخش مورد نظر خود را انتخاب کنید.</h2></div></fv-content></fv-main>"
 
 /***/ }),
 /* 45 */
