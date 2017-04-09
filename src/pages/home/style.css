@@ -1,6 +1,7 @@
 #app .home{
     text-align: center;
     margin: 50px auto;
+    max-width: 100%;
 }
 #app .home-icon{
     font-size: 43px;
