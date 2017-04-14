@@ -14,7 +14,7 @@ Vue.use(framevuerk);
 
 // components
 import sidebar from './components/sidebar';
-import header from './components/header';
+import loading from './components/loading';
 
 // pages
 import notfound from './pages/notfound';
@@ -122,30 +122,8 @@ const app = new Vue({
     router,
     store,
     components: {
-        raadHeader: header,
+        raadLoading: loading,
         raadSidebar: sidebar
-    },
-    data(){
-        return {
-            menuItems: [{
-                key: 'add-item',
-                icon: 'fa fa-user',
-                text: 'اضافه کردن فلان'
-            },
-            {
-                icon: 'fa fa-chart-bar',
-                text: 'روبوسی با کاربر',
-                disabled: true
-            },
-            {
-                key: 'hi-item',
-                icon: 'fa fa-google',
-                text: 'سلام به روی ماهت'
-            }]
-        }
-    },
-    computed: {
-
     },
     created(){
         this.routeChange();
