@@ -1,0 +1,12 @@
+#app .raad-loading .icon-continer{
+    font-size: 97px;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    transform: translateY(-50%);
+    color: #fff;
+    display: block;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+}
