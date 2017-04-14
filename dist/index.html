@@ -4,13 +4,14 @@
 		<meta charset="utf-8"/>
 		<title>Raad BackOffice</title>
 		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
+		<link rel="stylesheet" href="./raad-backoffice.css"
 	</head>
 	<body class="rtl">
-    <fv-main id="app">
-    	<raad-header></raad-header>
-        <router-view></router-view>
-        <raad-sidebar></raad-sidebar>
-    </fv-main>
+		<fv-main id="app">
+			<router-view></router-view>
+			<raad-sidebar></raad-sidebar>
+			<raad-loading v-show="$store.state.loading"></raad-loading>
+		</fv-main>
 		<script src="./raad-backoffice.js"></script>
 	</body>
 </html>

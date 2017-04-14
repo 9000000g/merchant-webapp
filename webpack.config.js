@@ -1,6 +1,7 @@
 var pkg = require('./package.json');
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: './src/index.js',
@@ -19,7 +20,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: ExtractTextPlugin.extract('css-loader?importLoaders=1&minimize=1')
       },
       {
         test: /\.pug$/,
@@ -30,5 +31,20 @@ module.exports = {
         loader: 'file-loader?name=[name].[ext]'
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: pkg.name+'.css',
+      allChunks: true
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true
+    }),
+    new webpack.BannerPlugin(
+      pkg.name + ' ' + pkg.version + "\n"+
+      pkg.description + "\n" +
+      'Author: ' + pkg.author + "\n" +
+      'Homepage: ' + pkg.homepage
+    )
+  ]
 }
