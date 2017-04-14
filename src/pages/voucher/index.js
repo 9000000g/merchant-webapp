@@ -1,6 +1,10 @@
+import item from '../../components/item';
 import template from './template.pug';
 import './style.css';
 export default {
+    components: {
+        raadItem: item
+    },
     template,
     data () {
         return {
