@@ -12,4 +12,10 @@ div
             fv-button.fv-col-xs-6.action.delete(@click="$refs.deleteDialog.open()")
                 i.fa.fa-trash
                 |  حذف
-    fv-dialog(ref="deleteDialog", :buttons="dialogButtons", :title="title") آیا از حذف "{{title}}" مطمئن هستید؟ در صورت حذف، امکان بازگشت آن موجود نیست.
+    fv-dialog(ref="deleteDialog", :buttons="dialogButtons")
+        h3 
+            i.fa.fa-trash
+            |  حذف {{title}}
+        br
+        div آیا از حذف این آیتم مطمئن هستید؟
+        div در صورت حذف، امکان بازگشت آن وجود ندارد.

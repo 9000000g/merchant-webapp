@@ -3,14 +3,14 @@
     font-size: .9em;
     border: 1px solid #cad0d0;
     box-shadow: 0 7px 19px 0 rgba(0,0,0,.08);
+    border-radius: 6px;
 }
 
 #app .item .title{
-    background: #dcdcdc;
-    color: #3d5c75;
-    border-bottom: solid 1px #cad0d0;
-    padding: 5px 11px;
+    background: #dfe5e7;
+    padding: 7px 11px;
     cursor: pointer;
+    color: #1b7bc7;
 }
 #app .item .description{
     padding: 18px 11px;
@@ -21,12 +21,11 @@
     padding: 0;
     border-top: solid 1px #cad0d0;
 }
-#app .item .actions .action.delete{
-    color: #9c1b1b;
-}
 
 #app .item .actions .action{
     border: none;
     border-radius: 0;
+}
+#app .item .actions .action:focus{
     box-shadow: none;
 }
