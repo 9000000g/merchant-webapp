@@ -7,10 +7,11 @@
 }
 
 #app .item .title{
-    background: #dfe5e7;
+    background: #e3e8e8;
     padding: 7px 11px;
     cursor: pointer;
     color: #1b7bc7;
+    box-shadow: inset 30px 0 65px #f4f7f7;
 }
 #app .item .description{
     padding: 18px 11px;
@@ -26,6 +27,6 @@
     border: none;
     border-radius: 0;
 }
-#app .item .actions .action:focus{
+#app .item .actions .action:focus:not(:active){
     box-shadow: none;
 }
