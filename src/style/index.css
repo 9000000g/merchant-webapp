@@ -11,18 +11,3 @@
 #app .search-input::placeholder{
     color: rgba(255,255,255,0.95);
 }
-
-#app .items .item .item-body{
-    margin: 7px;
-    background: #e0e6e6;
-    min-height: 70px;
-    overflow: hidden;
-    border-radius: 8px;
-    padding: 8px 11px;
-    font-size: 0.9em;
-    box-shadow: 0 4px 2px 0 rgba(0,0,0,0.2);
-    cursor: pointer;
-}
-#app .items .item .item-body:active{
-    background: #d8dede;
-}
