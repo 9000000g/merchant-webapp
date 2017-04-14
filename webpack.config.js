@@ -38,7 +38,8 @@ module.exports = {
       allChunks: true
     }),
     new webpack.optimize.UglifyJsPlugin({
-      minimize: true
+      minimize: true,
+      comments: false
     }),
     new webpack.BannerPlugin(
       pkg.name + ' ' + pkg.version + "\n"+
