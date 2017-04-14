@@ -1,0 +1,15 @@
+div
+    div.item
+        h3.title(@click="edit()")
+            i.fa.fa-caret-left
+            |  {{title}}
+        p.description
+            slot
+        div.actions.fv-row
+            fv-button.fv-col-xs-6.action.edit(@click="edit()")
+                i.fa.fa-pencil
+                |  ویرایش
+            fv-button.fv-col-xs-6.action.delete(@click="$refs.deleteDialog.open()")
+                i.fa.fa-trash
+                |  حذف
+    fv-dialog(ref="deleteDialog", :buttons="dialogButtons", :title="title") آیا از حذف "{{title}}" مطمئن هستید؟ در صورت حذف، امکان بازگشت آن موجود نیست.
