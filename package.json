@@ -1,6 +1,6 @@
 {
   "name": "raad-backoffice",
-  "version": "0.0.36",
+  "version": "0.0.4",
   "description": "raad backoffice client app",
   "main": "dist/index.js",
   "scripts": {
