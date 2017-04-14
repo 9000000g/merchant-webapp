@@ -1,11 +1,5 @@
 fv-main
-    fv-header.header
-        fv-button.fv-primary.fv-icon.fv-hide-on-lg(@click="$store.commit('toggleSidebar')")
-            i.fa.fa-bars
-        div.fv-title
-            h2(v-html="title")
-        fv-button.fv-primary.fv-icon(@click="$store.commit('go', -1)")
-            i.fa.fa-chevron-left
+    raad-header(:title="title")
     fv-content
         div.home
             h2.fv-col-xs-1of1
