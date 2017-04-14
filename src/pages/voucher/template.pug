@@ -1,14 +1,17 @@
 fv-main
-    fv-header
+    fv-header.header
+        fv-button.fv-primary.fv-icon.fv-hide-on-lg(@click="$store.commit('toggleSidebar')")
+            i.fa.fa-bars
         div.fv-title
             fv-input.fv-form-control(type='search', class="search-input", placeholder='جست‌و‌جو کنید...', v-model="searchQuery")
-    fv-content.no-padding
-        div.fv-row.items
-            div.fv-col-lg-3.fv-col-md-4.fv-col-sm-6.fv-col-xs-12.item(v-for="item in items", @click="goToItem(item.key)")
-                div.item-body
-                    h3(v-html="item.title")
-                    p(v-html="item.description")
-    fv-footer
-        fv-button.fv-primary.fv-block.fv-grow(@click="$store.commit('log', $route)")
+        fv-button.fv-primary.fv-icon(@click="$store.commit('log', $route)")
             i.fa.fa-plus
-            |  ایجاد تخفیف جدید
+        fv-button.fv-primary.fv-icon(@click="$store.commit('go', -1)")
+            i.fa.fa-chevron-left
+    fv-content.no-padding
+        div.fv-row
+            raad-item.fv-col-lg-3.fv-col-md-4.fv-col-sm-6.fv-col-xs-12(
+                v-for="item in items",
+                :key="item.key",
+                :title="item.title",
+                @edit="goToItem(item.key)") {{item.description}}
