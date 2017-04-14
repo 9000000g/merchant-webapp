@@ -8,21 +8,21 @@ export default {
                 {
                     key: 'voucher',
                     icon: 'fa fa-tags',
-                    text: 'کوپن',
+                    text: 'تخفیف‌ها',
                     selected: this.currentRoute.indexOf('voucher') === 0,
                     disabled: this.$store.state.me.loggedIn === false
                 },
                 {
                     key: 'customer',
                     icon: 'fa fa-user',
-                    text: 'مشتری',
+                    text: 'مشتریان',
                     selected: this.currentRoute.indexOf('customer') === 0,
                     disabled: this.$store.state.me.loggedIn === false
                 },
                 {
                     key: 'product',
                     icon: 'fa fa-qrcode',
-                    text: 'محصول',
+                    text: 'محصولات',
                     selected: this.currentRoute.indexOf('product') === 0,
                     disabled: this.$store.state.me.loggedIn === false
                 },
