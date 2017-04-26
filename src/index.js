@@ -22,7 +22,8 @@ import home from './pages/home';
 import login from './pages/login';
 import voucher from './pages/voucher';
 import voucherItem from './pages/voucher-item';
-
+import product from './pages/product';
+import productItem from './pages/product-item';
 
 // routes
 const router = new VueRouter({
@@ -48,6 +49,16 @@ const router = new VueRouter({
             component: voucherItem
         },
         {
+            name: 'product',
+            path: '/product',
+            component: product
+        },
+        {
+            name: 'product-item',
+            path: '/product/:id',
+            component: productItem
+        },
+        {
             name: 'notfound',
             path: '/*',
             component: notfound
@@ -55,12 +66,12 @@ const router = new VueRouter({
     ]
 });
 router.beforeEach((to, from, next) => {
-    store.commit('loading');
+    //store.commit('loading');
     //console.log(to);
-    setTimeout(()=>{
+    //setTimeout(()=>{
         next();
-        store.commit('loading', false);
-    }, 700);
+        //store.commit('loading', false);
+    //}, 700);
 })
 
 
