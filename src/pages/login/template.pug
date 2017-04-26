@@ -2,7 +2,7 @@ fv-main
     raad-header(:title="title")
     fv-content.no-padding
         div.fv-row
-            form.fv-col-sm-6.fv-col-offset-sm-3.fv-col-xs-12(@submit.prevent="login()")
+            form.fv-col-md-4.fv-col-offset-md-4.fv-col-sm-6.fv-col-offset-sm-3.fv-col-xs-12(@submit.prevent="login()")
                 div.fv-col-xs-12
                     label.fv-control-label نام کاربری
                     fv-input.fv-form-control(type='text', v-model='user.username', placeholder='نام کاربری خود را وارد کنید.', required)
