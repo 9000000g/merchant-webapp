@@ -1,0 +1,17 @@
+#app .imagepicker{
+    padding: 7.5px;
+    overflow: hidden;
+    cursor: pointer;
+    height: 13em;
+    background-position: center;
+    background-color: transparent;
+    background-clip: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#app .imagepicker > .pic{
+    width: 100%;
+    height: auto;
+    border: none;
+}

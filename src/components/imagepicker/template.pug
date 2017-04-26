@@ -1,0 +1,2 @@
+div.imagepicker(@click="$refs.filepicker.choose()", v-bind:style="{'background-image': thumb}")
+    fv-filepicker.fv-form-control.fv-hide(v-model='file', ref="filepicker", @change="fileChange()")
