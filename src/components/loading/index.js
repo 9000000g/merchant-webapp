@@ -1,5 +1,5 @@
 import template from './template.pug';
-import './style.css';
+import './style.scss';
 export default {
-    template
+    render: template.render
 }

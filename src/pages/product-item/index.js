@@ -1,13 +1,12 @@
 import raadHeader from '../../components/header';
 import raadImagepicker from '../../components/imagepicker';
 import template from './template.pug';
-import './style.css';
+import './style.scss';
 export default {
     components: {
         raadHeader,
         raadImagepicker
     },
-    template,
     data () {
         return {
             newItem: this.$route.params.id === 'new',
@@ -35,4 +34,5 @@ export default {
             return `محصول شماره ${this.id}`;
         }
     },
+    render: template.render
 }

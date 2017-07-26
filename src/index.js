@@ -1,22 +1,23 @@
-import './style/index.css';
 //import "babel-polyfill";
 
-import Vue from 'vue/dist/vue.js';
+import Vue from 'vue';
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
-import framevuerk from 'framevuerk';
-import 'framevuerk/dist/framevuerk.css';
+import framevuerk from 'framevuerk/dist/framevuerk-fa.js';
+import moment from 'moment-jalaali'
+import 'font-awesome/css/font-awesome.css'
+import 'shabnam-font/dist/font-face.css';
+
 import './index.html';
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(framevuerk);
 
-// components
-import sidebar from './components/sidebar';
-import loading from './components/loading';
+
 
 // pages
+import _main from './pages/_main';
 import notfound from './pages/notfound';
 import home from './pages/home';
 import login from './pages/login';
@@ -132,10 +133,6 @@ const store = new Vuex.Store({
 const app = new Vue({
     router,
     store,
-    components: {
-        raadLoading: loading,
-        raadSidebar: sidebar
-    },
     created(){
         this.routeChange();
     },
@@ -156,5 +153,6 @@ const app = new Vue({
                 this.$store.commit('go', 'voucher');
             }
         }
-    }
+    },
+    render: h => h(_main)
 }).$mount('#app');

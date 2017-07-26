@@ -1,10 +1,10 @@
 import template from './template.pug';
-import './style.css';
+import './style.scss';
 export default {
-    template,
     props: {
         title: {
             default: false
         }
-    }
+    },
+    render: template.render
 }

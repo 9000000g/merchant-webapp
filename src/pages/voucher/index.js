@@ -1,15 +1,12 @@
-import raadItem from '../../components/item';
 import raadHeader from '../../components/header';
 import template from './template.pug';
-import './style.css';
+import './style.scss';
 
 
 export default {
     components: {
-        raadItem,
         raadHeader
     },
-    template,
     data () {
         return {
             title: 'تخفیف‌ها',
@@ -32,5 +29,6 @@ export default {
             })
         }
         this.items = ret;
-    }
+    },
+    render: template.render
 }

@@ -1,7 +1,6 @@
 import template from './template.pug';
-import './style.css';
+import './style.scss';
 export default {
-    template,
     computed: {
         items(){
             const ret = [
@@ -95,5 +94,6 @@ export default {
     },
     mounted() {
         this.$store.state.sidebar = this.$refs.sidebar;
-    }
+    },
+    render: template.render
 }

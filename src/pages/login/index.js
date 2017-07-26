@@ -1,11 +1,10 @@
 import raadHeader from '../../components/header';
 import template from './template.pug';
-import './style.css';
+import './style.scss';
 export default {
     components: {
         raadHeader
     },
-    template,
     data () {
         return {
             title: 'ورود کاربر',
@@ -18,7 +17,8 @@ export default {
     methods: {
         login: function(){
             this.$store.commit('login', this.user.username);
-            this.$store.commit('go', 'voucher');
+            this.$store.commit('go', 'product');
         }
-    }
+    },
+    render: template.render
 }

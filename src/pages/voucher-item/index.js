@@ -1,11 +1,10 @@
 import raadHeader from '../../components/header';
 import template from './template.pug';
-import './style.css';
+import './style.scss';
 export default {
     components: {
         raadHeader
     },
-    template,
     data () {
         return {}
     },
@@ -14,4 +13,5 @@ export default {
             return `تخفیف شماره ${this.$route.params.id}`;
         }
     },
+    render: template.render
 }

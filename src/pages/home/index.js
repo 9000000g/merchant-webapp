@@ -1,14 +1,14 @@
 import raadHeader from '../../components/header';
 import template from './template.pug';
-import './style.css';
+import './style.scss';
 export default {
     components: {
         raadHeader
     },
-    template,
     data () {
         return {
             title: 'راد بک‌آفیس'
         }
     },
+    render: template.render
 }
