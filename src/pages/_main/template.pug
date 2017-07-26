@@ -1,4 +1,9 @@
 fv-main
 	router-view
-	raad-sidebar
+	fv-sidebar.sidebar(:pin="null", ref="sidebar", :width="270")
+		fv-header(:height="250")
+			a.fv-title.fv-text-center
+				h1 Framevuerk
+				p.fv-word-wrap Awesome
+		fv-list.fv-no-border(:items="sidebarItems", expanded)
 	raad-loading(v-if="false")

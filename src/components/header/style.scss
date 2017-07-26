@@ -1,12 +1,12 @@
 #app .search-input{
-    height: 30px;
-    min-height: 30px;
-    max-height: 30px;
-    text-align: center;
-    background: rgba(0,0,0,0.1);
-    color: #fff;
-    padding: 4px 7px;
+  height: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  text-align: center;
+  background: rgba(0,0,0,0.1);
+  color: #fff;
+  padding: 4px 7px;
 }
 #app .search-input::placeholder{
-    color: rgba(255,255,255,0.95);
+  color: rgba(255,255,255,0.95);
 }

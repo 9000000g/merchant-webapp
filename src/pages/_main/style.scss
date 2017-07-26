@@ -6,3 +6,27 @@ body{
         margin-top: 160px;
     }
 }
+body .sidebar {
+  & .fv-header {
+    background: #313840;
+    & .fv-title h1 {
+      font-size: 2em;
+    }
+    & * {
+      color: #fff;
+      line-height: 1.3em;
+    }
+  }
+  & .fv-tabs {
+    height: auto;
+  }
+  & .fv-list {
+    & .fa {
+      font-size: 1.3em;
+      margin-right: 5px;
+    }
+    & .fv-item.selected {
+      background: rgba(255, 255, 255, .1);
+    }
+  }
+}

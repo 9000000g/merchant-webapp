@@ -1,9 +1,9 @@
 fv-main.product
-    raad-header
-        div.fv-title
-            fv-input.fv-form-control(type='search', class="search-input", placeholder='جست‌و‌جو کنید...', v-model="searchQuery")
-        fv-button.fv-primary.fv-icon(@click="goToItem('new')")
-            i.fa.fa-plus
-    fv-content.no-padding
-        div.fv-row
-            fv-table.fv-col-xs-12(local, :fields="tableFields", :rows="items", @click-row="goToItem($event.key)")
+  raad-header(title="محصولات")
+    fv-button.fv-primary.fv-icon
+      i.fa.fa-plus
+  fv-content.fv-no-padding.fv-row
+    fv-table.fv-col-xs-12(local,
+      :fields="tableFields",
+      :rows="items",
+      sclick-row="goToItem($event.key)")
