@@ -1,42 +1,41 @@
 fv-main
-    raad-header(:title="title")
-        fv-button.fv-primary.fv-icon(@click="$store.commit('log', $route)")
-            i.fa.fa-trash
-        fv-button.fv-primary.fv-icon(@click="$store.commit('log', $route)")
-            i.fa.fa-check
-    fv-content.no-padding
-        div.fv-row
-            form.fv-col-md-8.fv-col-offset-md-2.fv-col-sm-10.fv-col-offset-sm-1.fv-col-xs-12(@submit.prevent="submit()")
-                div.fv-col-xs-12
-                    fieldset.fv-form-control-group
-                        legend.fv-control-label تنظیمات عمومی
-                        div.fv-col-md-8.fv-col-xs-12
-                            div.fv-col-xs-12
-                                label.fv-control-label نام
-                                fv-input.fv-form-control(type='text', v-model='item.name', placeholder='نام محصول را وارد کنید.', required)
-                            div.fv-col-xs-12
-                                label.fv-control-label شرح
-                                textarea.fv-form-control(v-model='item.description', placeholder='توضیحات محصول را وارد کنید.', required)
-                        div.fv-col-md-4.fv-col-xs-12
-                            div.fv-col-xs-12
-                                label.fv-control-label تصویر
-                                raad-imagepicker.fv-form-control(v-model='files.pic', :pic="item.pic", required)
-                div.fv-col-xs-12
-                    fieldset.fv-form-control-group
-                        legend.fv-control-label گروه تست
-                        fv-select(v-model='item.groups', :options="[]", :multiple="true", :allow-insert="true")
-                div.fv-col-xs-12
-                    fieldset.fv-form-control-group
-                        legend.fv-control-label چک‌باکس‌ها
-                        div.fv-col-xs-6
-                            label.fv-control-label مالیات
-                            fv-switch(v-model='item.tax')
-                        div.fv-col-xs-6
-                            label.fv-control-label فعال
-                            fv-switch(v-model='item.enabled')
-                        div.fv-col-xs-6
-                            label.fv-control-label فروش آنلاین
-                            fv-switch(v-model='item.online')
-                        div.fv-col-xs-6
-                            label.fv-control-label فروش در محل
-                            fv-switch(v-model='item.delivery')
+  raad-header(:title="title")
+    fv-button.fv-primary.fv-icon(@click="$store.commit('log', $route)")
+      i.fa.fa-trash
+    fv-button.fv-primary.fv-icon(@click="$store.commit('log', $route)")
+      i.fa.fa-check
+  fv-content.fv-row
+    fv-form(@submit="submit()", :class="$root.mainClass")
+      div.fv-col-xs-12
+        fieldset.fv-form-control-group
+          legend.fv-control-label تنظیمات عمومی
+          div.fv-col-md-8.fv-col-xs-12
+            div.fv-col-xs-12
+              label.fv-control-label نام
+              fv-input.fv-form-control(type='text', v-model='item.name', placeholder='نام محصول را وارد کنید.', required)
+            div.fv-col-xs-12
+              label.fv-control-label شرح
+              fv-textarea.fv-form-control(v-model='item.description', placeholder='توضیحات محصول را وارد کنید.', auto-height, required)
+          div.fv-col-md-4.fv-col-xs-12
+            div.fv-col-xs-12
+              label.fv-control-label تصویر
+              raad-imagepicker.fv-form-control(v-model='files.pic', :pic="item.pic", required)
+      div.fv-col-xs-12
+        fieldset.fv-form-control-group
+          legend.fv-control-label گروه تست
+          fv-select(v-model='item.groups', input-class="fv-form-control", :options="[]", :multiple="true", :allow-insert="true")
+      div.fv-col-xs-12
+        fieldset.fv-form-control-group
+          legend.fv-control-label چک‌باکس‌ها
+          div.fv-col-xs-6
+            label.fv-control-label مالیات
+            fv-switch(v-model='item.tax')
+          div.fv-col-xs-6
+            label.fv-control-label فعال
+            fv-switch(v-model='item.enabled')
+          div.fv-col-xs-6
+            label.fv-control-label فروش آنلاین
+            fv-switch(v-model='item.online')
+          div.fv-col-xs-6
+            label.fv-control-label فروش در محل
+            fv-switch(v-model='item.delivery')

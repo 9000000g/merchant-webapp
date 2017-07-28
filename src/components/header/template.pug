@@ -1,8 +1,8 @@
 fv-header.fv-invert(:height="58")
-  fv-button.fv-primary.fv-icon.fv-hide-on-lg(@click.native="$store.commit('toggleSidebar')")
+  fv-button.fv-primary.fv-icon.fv-hide-on-lg(@click.native="$root.sidebar.toggle()")
     i.fa.fa-bars
   div.fv-title(v-if="title")
     h2(v-html="title")
   slot
-  fv-button.fv-primary.fv-icon(@click.native="$store.commit('go', -1)")
+  fv-button.fv-primary.fv-icon(@click.native="$root.$router.go(-1)")
     i.fa.fa-arrow-left

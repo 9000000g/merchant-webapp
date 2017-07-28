@@ -2,8 +2,9 @@ fv-main.product
   raad-header(title="محصولات")
     fv-button.fv-primary.fv-icon
       i.fa.fa-plus
-  fv-content.fv-no-padding.fv-row
-    fv-table.fv-col-xs-12(local,
+  fv-content.fv-row
+    fv-table(:class="$root.mainClass",
+      local,
       :fields="tableFields",
       :rows="items",
-      sclick-row="goToItem($event.key)")
+      @click-row="$root.$router.push('product/'+$event.id)")

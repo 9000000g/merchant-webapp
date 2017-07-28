@@ -77,12 +77,7 @@ router.beforeEach((to, from, next) => {
 
 
 // store
-const session = JSON.parse( global.sessionStorage.getItem('me') );
-const guestUser = {
-  username: 'guest',
-  loggedIn: false,
-  token: ''
-}
+
 const store = new Vuex.Store({
   state: {
     me: session === null? guestUser: session,
@@ -129,28 +124,61 @@ const store = new Vuex.Store({
   }
 })
 
+const session = JSON.parse( global.sessionStorage.getItem('me') );
+const guestUser = {
+  username: 'guest',
+  token: null
+}
+
 // app
 const app = new Vue({
   router,
-  store,
   created(){
     this.routeChange();
   },
+  data(){
+    return {
+      loading: false,
+      me: session === null? guestUser: session,
+      mainClass: ['fv-col-md-8', 'fv-col-offset-md-2', 'fv-col-sm-10', 'fv-col-offset-sm-1', 'fv-col-xs-12']
+    }
+  },
   watch: {
-    $route(){
+    '$route.name'(m){
       this.routeChange();
     }
   },
   methods: {
-    log(text=""){
-      console.log(text);
+    login(user){
+      this.me.username = user.username;
+      this.me.token = '123';
+      global.sessionStorage.setItem('me', JSON.stringify(this.me) );
+      this.routeChange();
+    },
+    logout(){
+      this.me.username = guestUser.username;
+      this.me.token = null;
+      global.sessionStorage.removeItem('me');
+      this.routeChange();
+    },
+    go (pageUrl='login') {
+      if( typeof pageUrl === 'number' ){
+        this.$router.go(pageUrl);
+        return;
+      }
+      else if( pageUrl.indexOf('/')!==0 ){
+        pageUrl = `/${pageUrl}`;
+      }
+      this.$router.push(pageUrl);
+      return;
+      
     },
     routeChange(){
-      if( this.$store.state.me.loggedIn === false ){
-        this.$store.commit('go', 'login');
+      if( this.me.token === null && this.$route.name !== 'login' ){
+        this.$router.push('/login');
       }
-      else if( this.$route.name === 'login' ){
-        this.$store.commit('go', 'voucher');
+      else if( this.me.token !== null && this.$route.name === 'login' ){
+        this.$router.push('/product');
       }
     }
   },

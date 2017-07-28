@@ -1,13 +1,11 @@
 import template from './template.pug'
 import style from './style.scss'
 // components
-import sidebar from '../../components/sidebar';
 import loading from '../../components/loading';
 
 export default {
   components: {
-      raadLoading: loading,
-      raadSidebar: sidebar
+      raadLoading: loading
   },
   computed: {
     sidebarItems(){
@@ -57,7 +55,7 @@ export default {
 
   },
   mounted () {
-
+    this.$root.sidebar = this.$refs.sidebar;
   },
   style,
   render: template.render

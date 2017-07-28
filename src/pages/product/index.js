@@ -46,14 +46,14 @@ export default {
   },
   methods: {
     goToItem(itemId){
-      this.$store.commit('go', `product/${itemId}`);
+      //this.$store.commit('go', `product/${itemId}`);
     }
   },
   created(){
     const ret = [];
     for( var i = 1; i <= 50; i++){
       ret.push({
-        key: i,
+        id: i,
         name: `محصول شماره ${i}`,
         category: Math.floor(Math.random() * 3),
         price: (Math.floor(Math.random() * 5000)).toString(),

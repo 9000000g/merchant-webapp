@@ -1,5 +1,4 @@
 import template from './template.pug';
-import './style.scss';
 export default {
   props: {
     title: {
